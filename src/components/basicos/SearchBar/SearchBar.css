@@ -1,0 +1,16 @@
+input {
+  width: 15rem;
+  height: 2.5rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background-color: #181515;
+  color: #fff;
+  padding-left: 1rem;
+  position: absolute;
+  right: 5.5%;
+}
+
+::placeholder {
+  color: #fff;
+}

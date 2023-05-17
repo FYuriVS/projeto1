@@ -1,0 +1,8 @@
+.Home {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding-left: 1.5rem;
+}

@@ -77,6 +77,16 @@ export function SideBar() {
           <div className="category-l">categoria teste 1</div>
         </div>
       </Sidebar>
+
+      <div className="mob-menu">
+        <Button
+          size="large"
+          icon="pi pi-align-justify"
+          severity="success"
+          style={style}
+          onClick={() => setVisibleLeft(true)}
+        />
+      </div>
     </div>
   );
 }

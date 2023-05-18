@@ -12,7 +12,6 @@ export function Container() {
 
       <div className="ofers">
         <CardCarousel />
-        <CardCarousel />
       </div>
     </div>
   );

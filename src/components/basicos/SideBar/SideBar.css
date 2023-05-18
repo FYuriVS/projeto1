@@ -1,7 +1,13 @@
+.mob-menu {
+  display: none;
+}
+
 .container-side {
   display: flex;
   width: 10vw;
   height: 100vh;
+  position: absolute;
+  left: 0;
 }
 
 .side-bar {
@@ -84,4 +90,13 @@
 h2 {
   color: #c1ff00;
   font-weight: bold;
+}
+@media screen and (max-width: 700px) {
+  .container-side {
+    display: none;
+  }
+
+  .mob-menu {
+    display: block;
+  }
 }

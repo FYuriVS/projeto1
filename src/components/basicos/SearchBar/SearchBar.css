@@ -4,13 +4,10 @@ input {
   border-radius: 1rem;
   border: none;
   outline: none;
-  background-color: #181515;
+  background-color: #c1ff00;
+  border: 2px solid black;
   color: #fff;
   padding-left: 1rem;
   position: absolute;
   right: 5.5%;
-}
-
-::placeholder {
-  color: #fff;
 }

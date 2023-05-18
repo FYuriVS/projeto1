@@ -9,6 +9,15 @@ import { Sidebar } from "primereact/sidebar";
 
 export function SideBar() {
   const [visibleLeft, setVisibleLeft] = useState(false);
+  const style = {
+    width: "100%",
+    backgroundColor: "#fff",
+    color: "#c1ff00",
+    border: "2px solid #c1ff00",
+    borderColor: "#c1ff00",
+    outline: "none",
+    padding: ".4rem 0",
+  };
 
   const navigate: any = useNavigate();
 
@@ -20,12 +29,8 @@ export function SideBar() {
             <Button
               size="large"
               icon="pi pi-align-justify"
-              style={{
-                width: "100%",
-                backgroundColor: "transparent",
-                border: "none",
-                padding: ".4rem 0",
-              }}
+              severity="success"
+              style={style}
               onClick={() => setVisibleLeft(true)}
             />
           </div>
@@ -36,17 +41,28 @@ export function SideBar() {
             <Button
               size="large"
               icon="pi pi-shopping-cart"
-              style={{
-                width: "100%",
-                backgroundColor: "transparent",
-                border: "none",
-                padding: ".4rem 0",
-              }}
+              severity="success"
+              style={style}
             />
           </div>
           <div className="action"></div>
         </div>
-        <div className="profile"></div>
+        <div className="profile">
+          <Button
+            size="large"
+            icon="pi pi-user"
+            severity="success"
+            rounded
+            style={{
+              width: "100%",
+              backgroundColor: "#fff",
+              color: "#c1ff00",
+              borderColor: "#c1ff00",
+              outline: "none",
+              padding: ".4rem 0",
+            }}
+          />
+        </div>
       </div>
       <Sidebar
         visible={visibleLeft}

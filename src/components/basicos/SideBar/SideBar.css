@@ -7,14 +7,15 @@
 .side-bar {
   display: flex;
   flex-direction: column;
-  background-color: #181515;
+  background-color: #fff;
   height: 100vh;
   width: 7vw;
-
+  box-shadow: 5px 5px 17px #bebebe, -5px -5px 17px #ffffff;
   justify-content: space-between;
   align-items: center;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  z-index: 1000;
 }
 
 .actions {
@@ -24,12 +25,20 @@
   justify-content: space-evenly;
 }
 
-.action,
-.category,
-.cart {
+.action {
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #d9d9d9;
+  background-color: #fff;
+  border: 2px solid #c1ff00;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.p-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #fff;
+  border: 2px solid #c1ff00;
   border-radius: 0.5rem;
   cursor: pointer;
 }
@@ -49,11 +58,10 @@
 .profile {
   width: 3rem;
   height: 3rem;
-  background-color: #d9d9d9;
+  background-color: #fff;
   border-radius: 50%;
   cursor: pointer;
   margin-bottom: 2rem;
-  background-image: url(../../../assets/images/person_FILL0_wght400_GRAD0_opsz48.svg);
   background-size: 2rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -71,4 +79,9 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+
+h2 {
+  color: #c1ff00;
+  font-weight: bold;
 }

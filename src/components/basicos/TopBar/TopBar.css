@@ -1,0 +1,7 @@
+.topBar {
+  width: 100%;
+  height: 5rem;
+  background-color: #ffffff;
+
+  box-shadow: -5px 5px 17px #bebebe, 5px -5px 17px #ffffff;
+}

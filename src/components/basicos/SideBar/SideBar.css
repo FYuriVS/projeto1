@@ -10,6 +10,17 @@
   left: 0;
 }
 
+.test {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 7.5rem;
+  height: 5rem;
+}
+
 .side-bar {
   display: flex;
   flex-direction: column;
@@ -97,6 +108,9 @@ h2 {
   }
 
   .mob-menu {
-    display: block;
+    display: flex;
+    align-items: center;
+    width: 2.5rem;
+    height: 5rem;
   }
 }

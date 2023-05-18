@@ -22,62 +22,63 @@ export function SideBar() {
   const navigate: any = useNavigate();
 
   return (
-    <div className="container-side">
-      <div className="side-bar">
-        <div className="actions">
-          <div className="category">
+    <div className="test">
+      <div className="container-side">
+        <div className="side-bar">
+          <div className="actions">
+            <div className="category">
+              <Button
+                size="large"
+                icon="pi pi-align-justify"
+                severity="success"
+                style={style}
+                onClick={() => setVisibleLeft(true)}
+              />
+            </div>
+            <div className="action"></div>
+            <div className="action"></div>
+            <div className="action"></div>
+            <div className="cart" onClick={() => navigate("/cart")}>
+              <Button
+                size="large"
+                icon="pi pi-shopping-cart"
+                severity="success"
+                style={style}
+              />
+            </div>
+            <div className="action"></div>
+          </div>
+          <div className="profile">
             <Button
               size="large"
-              icon="pi pi-align-justify"
+              icon="pi pi-user"
               severity="success"
-              style={style}
-              onClick={() => setVisibleLeft(true)}
+              rounded
+              style={{
+                width: "100%",
+                backgroundColor: "#fff",
+                color: "#c1ff00",
+                borderColor: "#c1ff00",
+                outline: "none",
+                padding: ".4rem 0",
+              }}
             />
           </div>
-          <div className="action"></div>
-          <div className="action"></div>
-          <div className="action"></div>
-          <div className="cart" onClick={() => navigate("/cart")}>
-            <Button
-              size="large"
-              icon="pi pi-shopping-cart"
-              severity="success"
-              style={style}
-            />
+        </div>
+        <Sidebar
+          visible={visibleLeft}
+          position="left"
+          onHide={() => setVisibleLeft(false)}
+        >
+          <h2>Categoryes</h2>
+          <div className="categoryes">
+            <div className="category-l">categoria teste 1</div>
+            <div className="category-l">categoria teste 1</div>
+            <div className="category-l">categoria teste 1</div>
+            <div className="category-l">categoria teste 1</div>
           </div>
-          <div className="action"></div>
-        </div>
-        <div className="profile">
-          <Button
-            size="large"
-            icon="pi pi-user"
-            severity="success"
-            rounded
-            style={{
-              width: "100%",
-              backgroundColor: "#fff",
-              color: "#c1ff00",
-              borderColor: "#c1ff00",
-              outline: "none",
-              padding: ".4rem 0",
-            }}
-          />
-        </div>
+        </Sidebar>
       </div>
-      <Sidebar
-        visible={visibleLeft}
-        position="left"
-        onHide={() => setVisibleLeft(false)}
-      >
-        <h2>Categoryes</h2>
-        <div className="categoryes">
-          <div className="category-l">categoria teste 1</div>
-          <div className="category-l">categoria teste 1</div>
-          <div className="category-l">categoria teste 1</div>
-          <div className="category-l">categoria teste 1</div>
-        </div>
-      </Sidebar>
-
       <div className="mob-menu">
         <Button
           size="large"

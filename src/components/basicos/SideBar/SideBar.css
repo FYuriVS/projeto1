@@ -46,7 +46,7 @@
   width: 2.5rem;
   height: 2.5rem;
   background-color: #fff;
-  border: 2px solid #c1ff00;
+  border: 1px solid #000;
   border-radius: 0.5rem;
   cursor: pointer;
 }
@@ -55,7 +55,7 @@
   width: 2.5rem;
   height: 2.5rem;
   background-color: #fff;
-  border: 2px solid #c1ff00;
+  border: 2px solid #000;
   border-radius: 0.5rem;
   cursor: pointer;
 }
@@ -99,9 +99,16 @@
 }
 
 h2 {
-  color: #c1ff00;
   font-weight: bold;
 }
+
+/* .p-dialog-content {
+  display: flex !important;
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+} */
+
 @media screen and (max-width: 700px) {
   .container-side {
     display: none;

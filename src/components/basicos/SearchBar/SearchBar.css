@@ -1,13 +1,9 @@
-input {
-  width: 15rem;
+.search-input {
+  width: auto;
   height: 2.5rem;
   border-radius: 1rem;
   border: none;
   outline: none;
-  background-color: #c1ff00;
-  border: 2px solid black;
-  color: #fff;
+  background-color: #e5e5e5;
   padding-left: 1rem;
-  position: absolute;
-  right: 5.5%;
 }

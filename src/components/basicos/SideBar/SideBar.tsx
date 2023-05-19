@@ -1,25 +1,55 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./SideBar.css";
 
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "primereact/button";
-
 import { Sidebar } from "primereact/sidebar";
+import { TieredMenu } from "primereact/tieredmenu";
+import { Dialog } from "primereact/dialog";
+import { InputText } from "primereact/inputtext";
 
 export function SideBar() {
   const [visibleLeft, setVisibleLeft] = useState(false);
+  const [visible, setVisible] = useState(false);
   const style = {
     width: "100%",
     backgroundColor: "#fff",
-    color: "#c1ff00",
-    border: "2px solid #c1ff00",
-    borderColor: "#c1ff00",
+    color: "#000",
+    border: "1px solid #000",
+    borderColor: "#000",
     outline: "none",
     padding: ".4rem 0",
   };
-
   const navigate: any = useNavigate();
+
+  // const [isLogged, setIsLogeed] = useState(false);
+
+  const menu: any = useRef(null);
+  const items = [
+    {
+      label: "Login",
+      icon: "pi pi-sign-in",
+      command: () => {
+        setVisible(true);
+      },
+    },
+    {
+      label: "Register",
+      icon: "pi pi-file-edit",
+      command: () => {
+        setVisible(true);
+      },
+    },
+    {
+      separator: true,
+    },
+    {
+      label: "Quit",
+      icon: "pi pi-fw pi-power-off",
+      command: () => {},
+    },
+  ];
 
   return (
     <div className="test">
@@ -30,7 +60,7 @@ export function SideBar() {
               <Button
                 size="large"
                 icon="pi pi-align-justify"
-                severity="success"
+                severity="secondary"
                 style={style}
                 onClick={() => setVisibleLeft(true)}
               />
@@ -42,7 +72,7 @@ export function SideBar() {
               <Button
                 size="large"
                 icon="pi pi-shopping-cart"
-                severity="success"
+                severity="secondary"
                 style={style}
               />
             </div>
@@ -52,17 +82,19 @@ export function SideBar() {
             <Button
               size="large"
               icon="pi pi-user"
-              severity="success"
+              severity="secondary"
               rounded
               style={{
                 width: "100%",
                 backgroundColor: "#fff",
-                color: "#c1ff00",
-                borderColor: "#c1ff00",
+                color: "#000",
+                borderColor: "#000",
                 outline: "none",
                 padding: ".4rem 0",
               }}
+              onClick={(e) => menu.current.toggle(e)}
             />
+            <TieredMenu model={items} popup ref={menu} breakpoint="767px" />
           </div>
         </div>
         <Sidebar
@@ -83,11 +115,27 @@ export function SideBar() {
         <Button
           size="large"
           icon="pi pi-align-justify"
-          severity="success"
+          severity="secondary"
           style={style}
           onClick={() => setVisibleLeft(true)}
         />
       </div>
+
+      <Dialog
+        header="Login"
+        visible={visible}
+        style={{ width: "30rem", height: "35rem" }}
+        onHide={() => setVisible(false)}
+      >
+        <div className="container-login">
+          <div className="p-inputgroup">
+            <span className="p-inputgroup-addon ">
+              <i className="pi pi-user"></i>
+            </span>
+            <InputText placeholder="Username" />
+          </div>{" "}
+        </div>
+      </Dialog>
     </div>
   );
 }

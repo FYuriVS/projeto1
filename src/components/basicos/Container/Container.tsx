@@ -9,7 +9,6 @@ export function Container() {
       <div>
         <div className="logo"></div>
       </div>
-
       <div className="ofers">
         <CardCarousel />
       </div>

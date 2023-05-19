@@ -3,8 +3,8 @@ import "./SearchBar.css";
 
 export function SearchBar() {
   return (
-    <div>
-      <input placeholder="Buscar Produto..."></input>
+    <div className="search-bar">
+      <input className="search-input" placeholder="Buscar Produto..."></input>
     </div>
   );
 }

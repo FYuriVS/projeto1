@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./SideBar.css";
+import "./NavBar.css";
 
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "primereact/button";
 import { Sidebar } from "primereact/sidebar";
 import { TieredMenu } from "primereact/tieredmenu";
+import { SplitButton } from "primereact/splitbutton";
 import { Dialog } from "primereact/dialog";
-import { InputText } from "primereact/inputtext";
+import { Login } from "../Login/Login";
 
 export function SideBar() {
   const [visibleLeft, setVisibleLeft] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  let largura = window.innerWidth;
   const style = {
     width: "100%",
     backgroundColor: "#fff",
@@ -22,6 +25,54 @@ export function SideBar() {
     padding: ".4rem 0",
   };
   const navigate: any = useNavigate();
+
+  const renderize = () => {
+    if (largura < 700) {
+      return (
+        <div className="profile-mob">
+          <Button
+            size="large"
+            icon="pi pi-user"
+            severity="secondary"
+            rounded
+            style={{
+              width: "100%",
+              backgroundColor: "#fff",
+              color: "#000",
+              borderColor: "#000",
+              outline: "none",
+              padding: ".4rem 0",
+            }}
+            onClick={(e) => menu.current.toggle(e)}
+          />
+
+          <TieredMenu model={items} popup ref={menu} breakpoint="767px" />
+        </div>
+      );
+    }
+    if (largura > 700) {
+      return (
+        <div className="profile">
+          <Button
+            size="large"
+            icon="pi pi-user"
+            severity="secondary"
+            rounded
+            style={{
+              width: "100%",
+              backgroundColor: "#fff",
+              color: "#000",
+              borderColor: "#000",
+              outline: "none",
+              padding: ".4rem 0",
+            }}
+            onClick={(e) => menu.current.toggle(e)}
+          />
+          <TieredMenu model={items} popup ref={menu} breakpoint="767px" />
+        </div>
+      );
+    }
+  };
 
   // const [isLogged, setIsLogeed] = useState(false);
 
@@ -53,8 +104,8 @@ export function SideBar() {
 
   return (
     <div className="test">
-      <div className="container-side">
-        <div className="side-bar">
+      <div className="container-nav">
+        <div className="nav-bar">
           <div className="actions">
             <div className="category">
               <Button
@@ -108,33 +159,49 @@ export function SideBar() {
             <div className="category-l">categoria teste 1</div>
             <div className="category-l">categoria teste 1</div>
             <div className="category-l">categoria teste 1</div>
+            {/* {renderize()} */}
+
+            {/* <div className="profile-mob">
+              <Button
+                size="large"
+                icon="pi pi-user"
+                severity="secondary"
+                rounded
+                style={{
+                  width: "100%",
+                  backgroundColor: "#fff",
+                  color: "#000",
+                  borderColor: "#000",
+                  outline: "none",
+                  padding: ".4rem 0",
+                }}
+                onClick={(e) => menu.current.toggle(e)}
+              />
+
+              <TieredMenu model={items} popup ref={menu} breakpoint="767px" />
+            </div> */}
+            <div className="profile-mob">
+              <SplitButton
+                onClick={() => setVisible(true)}
+                className="profile-mob-btn"
+                label="Login"
+                icon="pi pi-user"
+                model={items}
+              />
+            </div>
           </div>
         </Sidebar>
-      </div>
-      <div className="mob-menu">
-        <Button
-          size="large"
-          icon="pi pi-align-justify"
-          severity="secondary"
-          style={style}
-          onClick={() => setVisibleLeft(true)}
-        />
       </div>
 
       <Dialog
         header="Login"
         visible={visible}
-        style={{ width: "30rem", height: "35rem" }}
-        onHide={() => setVisible(false)}
+        style={{ width: "20rem", height: "35rem" }}
+        onHide={() => {
+          setVisible(false);
+        }}
       >
-        <div className="container-login">
-          <div className="p-inputgroup">
-            <span className="p-inputgroup-addon ">
-              <i className="pi pi-user"></i>
-            </span>
-            <InputText placeholder="Username" />
-          </div>{" "}
-        </div>
+        <Login />
       </Dialog>
     </div>
   );

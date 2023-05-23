@@ -7,16 +7,34 @@ import { Button } from "primereact/button";
 import Divider from "../Divider/Divider";
 import { Calendar } from "primereact/calendar";
 import { InputMask } from "primereact/inputmask";
+import api from "../../../service/api";
 
 export const Register = () => {
   const [firstname, setFisrtNameValue] = useState("");
   const [lastname, setLastNameValue] = useState("");
-  const [birthday, setBirthdayValue] = useState("");
+  const [birthday, setBirthdayValue] = useState(null);
   const [email, setEmailValue] = useState("");
   const [password, setPasswordValue] = useState("");
   const [phone, setPhonevalue] = useState("");
   const [document, setDocumentValue] = useState("");
-  const [date, setDate] = useState(null);
+
+  const register = async () => {
+    try {
+      const resp = await api.post("http://192.168.206.16:3000/api/v1/account", {
+        first_name: setFisrtNameValue,
+        last_name: setLastNameValue,
+        birthday: setBirthdayValue,
+        email: setEmailValue,
+        password: setPasswordValue,
+        phone: setPhonevalue,
+        document: setDocumentValue,
+      });
+
+      console.log(resp);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="container-register">
@@ -39,9 +57,9 @@ export const Register = () => {
           <div className="value">
             <label>Birthday</label>
             <Calendar
-              value={date}
+              value={birthday}
               className="userValue"
-              onChange={(e: any) => console.log(e.value)}
+              onChange={(e: any) => setBirthdayValue(e.target.value)}
               dateFormat="dd/mm/yy"
             />
           </div>
@@ -87,7 +105,7 @@ export const Register = () => {
         <Button
           size="large"
           label="Register"
-          onClick={() => console.log("opa")}
+          onClick={() => register()}
           style={{ marginTop: ".5rem" }}
         />
       </div>

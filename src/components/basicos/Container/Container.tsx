@@ -6,9 +6,6 @@ import { CardCarousel } from "../../dinamicos/Card-Carousel/CardCarousel";
 export function Container() {
   return (
     <div className="container">
-      <div>
-        <div className="logo"></div>
-      </div>
       <div className="ofers">
         <CardCarousel />
       </div>

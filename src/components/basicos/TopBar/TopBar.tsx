@@ -6,8 +6,8 @@ const TopBar = () => {
   return (
     <div className="topBar">
       {/* <div className="menu-mobile"></div> */}
-      <div className="logo"></div>
-      <div className="searchBar" style={{ margin: 20 }}>
+      <div className="logo">a</div>
+      <div className="searchBar">
         <SearchBar />
       </div>
     </div>

@@ -50,14 +50,14 @@ export function CardCarousel() {
 
   const productTemplate = (product: any) => {
     return (
-      <div className="card">
-        <div>
+      <div className="card" onClick={() => console.log(product.name)}>
+        <div className="product-img">
           <img
             src={`https://primefaces.org/cdn/primereact/images/product/${product.image}`}
             alt={product.name}
           />
         </div>
-        <div>
+        <div className="product-info">
           <p>{product.name}</p>
           <h6 className="mt-0 mb-3">${product.price}</h6>
         </div>

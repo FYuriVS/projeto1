@@ -9,10 +9,12 @@ import { TieredMenu } from "primereact/tieredmenu";
 import { SplitButton } from "primereact/splitbutton";
 import { Dialog } from "primereact/dialog";
 import { Login } from "../Login/Login";
+import { Register } from "../Register/Register";
 
 export function SideBar() {
   const [visibleLeft, setVisibleLeft] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [visibleLogin, setVisibleLogin] = useState(false);
+  const [visibleRegister, setVisibleRegister] = useState(false);
 
   let largura = window.innerWidth;
   const style = {
@@ -82,14 +84,14 @@ export function SideBar() {
       label: "Login",
       icon: "pi pi-sign-in",
       command: () => {
-        setVisible(true);
+        setVisibleLogin(true);
       },
     },
     {
       label: "Register",
       icon: "pi pi-file-edit",
       command: () => {
-        setVisible(true);
+        setVisibleRegister(true);
       },
     },
     {
@@ -182,7 +184,7 @@ export function SideBar() {
             </div> */}
             <div className="profile-mob">
               <SplitButton
-                onClick={() => setVisible(true)}
+                onClick={() => setVisibleLogin(true)}
                 className="profile-mob-btn"
                 label="Login"
                 icon="pi pi-user"
@@ -195,13 +197,23 @@ export function SideBar() {
 
       <Dialog
         header="Login"
-        visible={visible}
+        visible={visibleLogin}
         style={{ width: "20rem", height: "35rem" }}
         onHide={() => {
-          setVisible(false);
+          setVisibleLogin(false);
         }}
       >
         <Login />
+      </Dialog>
+      <Dialog
+        header="Register"
+        visible={visibleRegister}
+        style={{ width: "20rem", height: "35rem" }}
+        onHide={() => {
+          setVisibleRegister(false);
+        }}
+      >
+        <Register />
       </Dialog>
     </div>
   );

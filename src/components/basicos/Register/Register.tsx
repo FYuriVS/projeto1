@@ -42,7 +42,7 @@ export const Register = () => {
               value={date}
               className="userValue"
               onChange={(e: any) => console.log(e.value)}
-              dateFormat="yy/mm/dd"
+              dateFormat="dd/mm/yy"
             />
           </div>
           <div className="value">
@@ -75,7 +75,7 @@ export const Register = () => {
           </div>
         </div>
         <div className="value">
-          <label>Phone</label>
+          <label>Document</label>
           <InputMask
             value={document}
             className="userValue"

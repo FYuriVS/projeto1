@@ -208,7 +208,7 @@ export function SideBar() {
       <Dialog
         header="Register"
         visible={visibleRegister}
-        style={{ width: "20rem", height: "35rem" }}
+        style={{ maxWidth: "30rem", height: "35rem" }}
         onHide={() => {
           setVisibleRegister(false);
         }}

@@ -1,0 +1,50 @@
+.names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.name {
+  margin: 0.2rem 0;
+  width: 49%;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+.value {
+  margin: 0.2rem 0;
+  width: 49%;
+}
+
+.input-group {
+  display: flex;
+}
+
+.userValue {
+  width: 100% !important;
+}
+
+@media screen and (max-width: 375px) {
+  .names {
+    flex-direction: column;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .name {
+    width: 100%;
+  }
+
+  .value {
+    width: 100%;
+  }
+
+  .p-calendar {
+    width: 100%;
+  }
+}
